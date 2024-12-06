@@ -243,7 +243,6 @@ const props = defineProps({
   },
   disabledBackButtonClass: {
     type: String,
-    default: "disabled-back-button",
   },
   disabledFirstButtonClass: {
     type: String,
@@ -255,7 +254,6 @@ const props = defineProps({
   },
   disabledNextButtonClass: {
     type: String,
-    default: "disabled-next-button",
   },
   disabledForwardJumpButtonClass: {
     type: String,
@@ -530,7 +528,7 @@ if (props.type === "link" && !props.linkUrl.includes("[page]")) {
           backButtonClass,
           paginateButtonsClass,
           disablePagination ? disabledPaginateButtonsClass : '',
-          disablePagination ? disabledBackButtonClass : '',
+          disabledBackButtonClass?.length ? disabledBackButtonClass : '',
         ]"
         :disabled="disablePagination"
       >
@@ -682,7 +680,7 @@ if (props.type === "link" && !props.linkUrl.includes("[page]")) {
           paginateButtonsClass,
           nextButtonClass,
           disablePagination ? disabledPaginateButtonsClass : '',
-          disablePagination ? disabledNextButtonClass : '',
+          disabledNextButtonClass?.length ? disabledNextButtonClass : '',
         ]"
         :disabled="disablePagination"
       >
